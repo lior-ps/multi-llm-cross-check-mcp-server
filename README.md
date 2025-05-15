@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/lior-ps-multi-llm-cross-check-mcp-server-badge.png)](https://mseep.ai/app/lior-ps-multi-llm-cross-check-mcp-server)
+
 # Multi LLM Cross-Check MCP Server
 
 A Model Control Protocol (MCP) server that allows cross-checking responses from multiple LLM providers simultaneously. This server integrates with Claude Desktop as an MCP server to provide a unified interface for querying different LLM APIs.
