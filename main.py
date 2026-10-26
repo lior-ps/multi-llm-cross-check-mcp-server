@@ -1,6 +1,7 @@
 import os
 import asyncio
 import httpx
+from urllib.parse import urlparse
 from fastmcp import FastMCP
 
 mcp = FastMCP("LLM Cross-Check Server")
@@ -12,6 +13,8 @@ async def query_llm(prompt, api_url, api_key, model=None):
     else:
         headers = {}
         payload = {"contents": [{"parts": [{"text": prompt}]}]}
+    if urlparse(api_url).hostname == "api.perplexity.ai":
+        headers["X-Pplx-Integration"] = "multi-llm-cross-check-mcp-server"
     try:
         async with httpx.AsyncClient() as client:
             response = await client.post(api_url, json=payload, headers=headers)
